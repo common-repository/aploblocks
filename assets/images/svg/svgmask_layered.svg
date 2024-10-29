@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg preserveAspectRatio="none" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+ <g stroke-width="1.4163">
+  <path d="M 0,0 50,6.256 100,0 93.74,50 100,100 50,93.74 0,100 6.256,50 Z" fill-opacity=".65"/>
+  <path d="m0 0 50 10 50-10-10 50 10 50-50-10-50 10 10-50z"/>
+ </g>
+</svg>

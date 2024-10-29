@@ -1,0 +1,594 @@
+body {
+  --aplo-filter-string:"none";
+  --aplo-filter-hover-string:"none";
+  --aplo-transform-string:"none";
+  --aplo-transform-hover-string:"none";
+
+  /* filter drop-shadow  */
+  --aplo-fdsc:0,0,0; /* color */
+  --aplo-fdso:0.7; /* opacity */
+
+  /* box-shadow values */
+  --aplo-box-shadow-small: 0px 3px 3px 0 rgba(0, 0, 0, 0.6);
+  --aplo-box-shadow-med: 0px 7px 7px 0 rgba(0, 0, 0, 0.6);
+  --aplo-box-shadow-large: 12px 12px 12px 0 rgba(0, 0, 0, 0.6);
+
+  /* pull up/down for group styling - by default uses blockGap*/
+  /* this to be removed */
+  --group-pull: var(--wp--style--block-gap);
+
+  /* the default transition for hover */
+  --aplo-thdu : 350ms;
+  --aplo-thti : ease-in;
+
+  /* the default transition for entrance */
+  --aplo-tedu : 900ms;
+  --aplo-tede : 0ms;
+  --aplo-teti : ease-out;
+
+  /* defaults for animation */
+  --aplo-andu : 5s;
+  --aplo-anit : infinite;
+
+  /* the default clip amount for masks */
+  --aplo-clip:10%;
+
+  /* determine if any of these are still used */
+  --aplo-shd:'';
+  --aplosdh:20px;
+  --aplosdw:100px;
+
+  --aplo-image-mask-size:100% 100%;
+  --aplo-image-mask-position:center;
+  --aplo-image-mask-repeat-x:no-repeat;
+  --aplo-image-mask-repeat-y:no-repeat;
+
+  --aplo-stuck-header-base:#000;
+  --aplo-stuck-header-contrast:#fff;
+
+}
+
+/**************** box-shadow ***************************/ 
+.wp-block-image.is-style-aplo-shadow-small img,
+.wp-block-group.is-style-aplo-shadow-small,
+.wp-block-columns.is-style-aplo-shadow-small,
+.wp-block-column.is-style-aplo-shadow-small,
+.wp-block-cover.is-style-aplo-shadow-small,
+.wp-block-post-featured-image.is-style-aplo-shadow-small img,
+.wp-block-button.is-style-aplo-shadow-small .wp-block-button__link {
+    box-shadow:var(--aplo-box-shadow-small);
+}
+
+.wp-block-image.is-style-aplo-shadow-med img,
+.wp-block-group.is-style-aplo-shadow-med,
+.wp-block-columns.is-style-aplo-shadow-med,
+.wp-block-column.is-style-aplo-shadow-med,
+.wp-block-cover.is-style-aplo-shadow-med,
+.wp-block-post-featured-image.is-style-aplo-shadow-med img,
+.wp-block-button.is-style-aplo-shadow-med .wp-block-button__link {
+    box-shadow:var(--aplo-box-shadow-med);
+}
+.wp-block-image.is-style-aplo-shadow-large img,
+.wp-block-group.is-style-aplo-shadow-large,
+.wp-block-columns.is-style-aplo-shadow-large,
+.wp-block-column.is-style-aplo-shadow-large,
+.wp-block-cover.is-style-aplo-shadow-large,
+.wp-block-post-featured-image.is-style-aplo-shadow-large img,
+.wp-block-button.is-style-aplo-shadow-large .wp-block-button__link {
+    box-shadow:var(--aplo-box-shadow-large);
+}
+
+/****************** separator *************************/
+.is-style-aplo-separator {
+    height:3px;width:50% !important;border:none;
+    background-color:currentcolor; 
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.6);
+}
+
+.is-style-aplo-separator-two {
+    height:3px;width:70% !important;border:none;
+    background:linear-gradient(to right, transparent, currentcolor 30%, currentcolor 70%, transparent );
+    }
+
+.is-style-aplo-separator-three {
+    height:3px;width:50% !important;
+    border:1px 0px solid  currentcolor;
+}
+
+/* image caption position */
+figure.wp-block-image[class*=is-style-aplo-image-caption] {
+  position:relative;
+  --aplo-cp-t:unset;
+  --aplo-cp-b:unset;
+  --aplo-cp-l:unset;
+  --aplo-cp-r:unset;
+}
+
+figure.wp-block-image[class*=is-style-aplo-image-caption] figcaption,
+.wp-block-gallery.has-nested-images figure.wp-block-image[class*=is-style-aplo-image-caption] figcaption {
+  top:var(--aplo-cp-t);
+  left:var(--aplo-cp-l);  
+  bottom:var(--aplo-cp-b);
+  right:var(--aplo-cp-r);  
+  background-color:var(--wp--preset--color--contrast,hsl(0,0%,20%));
+  color:var(--wp--preset--color--base,hsl(0,0%,80%));
+  position:absolute;
+  padding:0.5rem;
+  text-align:center;
+  max-width:60%;
+  min-width:40%;
+  margin:0;
+  box-sizing:border-box;
+  display:inline-block;
+  box-shadow:2px 2px 2px rgba(0,0,0,0.6);
+}
+
+figure.wp-block-image.is-style-aplo-image-caption-top-left {--aplo-cp-t:10px; --aplo-cp-l:-10px}
+figure.wp-block-image.is-style-aplo-image-caption-bottom-left {--aplo-cp-b:10px; --aplo-cp-l:-10px}
+figure.wp-block-image.is-style-aplo-image-caption-top-right {--aplo-cp-t:10px; --aplo-cp-r:-10px}
+figure.wp-block-image.is-style-aplo-image-caption-bottom-right {--aplo-cp-b:10px; --aplo-cp-r:-10px}
+
+/**************************************************************
+*
+* Cover styles
+*
+***************************************************************/
+
+.wp-block-cover[class*=is-style-aplo-cover-hover] {
+overflow:hidden;
+position:relative;
+--aplochX:0;
+--aplochY:0;
+}
+
+.wp-block-cover[class*=is-style-aplo-cover-hover] .wp-block-cover__inner-container,
+.wp-block-cover[class*=is-style-aplo-cover-hover] .wp-block-cover__background.has-background-dim {
+  transform:translate(var(--aplochX),var(--aplochY));
+  height:100%;
+  width:100%;
+}
+.wp-block-cover[class*=is-style-aplo-cover-hover] .wp-block-cover__inner-container {
+  transition: all 300ms ease-in-out;
+}
+
+.wp-block-cover[class*=is-style-aplo-cover-hover] .wp-block-cover__background.has-background-dim {
+  transition: all 300ms ease-in-out;
+}
+
+.wp-block-cover[class*=is-style-aplo-cover-hover]:not(:hover) .wp-block-cover__inner-container,
+.wp-block-cover[class*=is-style-aplo-cover-hover]:not(:hover) .wp-block-cover__background.has-background-dim {
+  opacity:0;
+}
+
+.wp-block-cover[class*=is-style-aplo-cover-hover]:hover .wp-block-cover__inner-container {
+  opacity:1;
+  transform:translate(0,0);
+  
+  transition: all 400ms ease-in-out;
+}
+.wp-block-cover[class*=is-style-aplo-cover-hover]:hover .wp-block-cover__background {
+transform:translate(0,0);
+}
+
+.wp-block-cover.is-style-aplo-cover-hover-left {--aplochX:-100%}
+.wp-block-cover.is-style-aplo-cover-hover-right {--aplochX:100%}
+.wp-block-cover.is-style-aplo-cover-hover-bottom {--aplochY:100%}
+.wp-block-cover.is-style-aplo-cover-hover-top {--aplochY:-100%}
+
+/* animations */
+.aploanim {animation-timing-function:var(--aplo-teti);animation-duration:var(--aplo-tedu);animation-delay:var(--aplo-tede);animation-fill-mode:forwards;position:relative;opacity:0;}
+
+.aploanim.fadein.aploshow {animation-name:fadein;}
+@keyframes fadein {
+  0%  {opacity:0;}
+  100%{opacity:1;}
+}
+.aploanim.fadeup.aploshow {animation-name:fadeup; }
+@keyframes fadeup {
+  0%  {opacity:0;transform: translateY(100px);}
+  100%{opacity:1;transform: translateY(0px);}
+}
+
+.aploanim.fadedown.aploshow {animation-name:fadedown; }
+@keyframes fadedown {
+  0%  {opacity:0;transform: translateY(-100px);}
+  100%{opacity:1;transform: translateY(0px);}
+}
+.aploanim.fadeinleft.aploshow {animation-name:fadeinleft; }
+@keyframes fadeinleft {
+  0%  {opacity:0;transform: translateX(-100px);}
+  100%{opacity:1;transform: translateX(0px);}
+}
+.aploanim.fadeinright.aploshow {animation-name:fadeinright; }
+@keyframes fadeinright {
+  0%  {opacity:0;transform: translateX(100px);}
+  100%{opacity:1;transform: translateX(0px);}
+}
+
+.aploanim.slideinleft.aploshow {animation-name:slideinleft; }
+@keyframes slideinleft {
+  0%  {opacity:0;transform:translateX(-100%)}
+  50% {opacity:1;}
+  100%{opacity:1;transform:translateX(0)}
+}
+
+.aploanim.slideinright.aploshow {animation-name:slideinright; }
+@keyframes slideinright {
+  0%  {opacity:0;transform:translateX(100%)}
+  50% {opacity:1;}
+  100%{opacity:1;transform:translateX(0)}
+}
+
+.aploanim.scalein.aploshow {animation-name:scalein; }
+@keyframes scalein {
+  0%  {opacity:0;transform: scale(0)}
+  100%{opacity:1;transform:scale(1);}
+}
+
+.aploanim.bounce.aploshow {opacity:1;animation-name:bounce; }
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-15px);}
+}
+
+.aploanim.rotatein.aploshow {animation-name:rotatein}
+@keyframes rotatein {
+  0% {transform: rotate(-45deg);opacity: 0;}
+  100% {transform: rotate(0);opacity: 1;}
+}
+
+.aploanim.flipin.aploshow {animation-name:flipin}
+@keyframes flipin {
+  0% {transform: rotateX(80deg);opacity: 0;}
+  100% {transform: rotateX(0);opacity: 1;}
+}
+
+.aploanim.rollinleft.aploshow {animation-name:rollinleft}
+@keyframes rollinleft {
+  0% {transform: translateX(-800px) rotate(-540deg);opacity: 0;}
+  100% {transform: translateX(0) rotate(0deg);opacity: 1;}
+}
+
+.aploanim.rollinright.aploshow {animation-name:rollinright}
+@keyframes rollinright {
+  0% {transform: translateX(800px) rotate(540deg);opacity: 0;}
+  100% {transform: translateX(0) rotate(0deg);opacity: 1;}
+}
+
+.aploanim.blurin.aploshow {animation-name:blurin}
+@keyframes blurin {
+  0% {filter: blur(12px);opacity: 0;}
+  100% {filter: blur(0px);opacity: 1;}
+}
+
+.aploanim.txtexpandin.aploshow {animation-name:txtexpandin}
+@keyframes txtexpandin {
+  0% {letter-spacing: -0.5em;opacity: 0;}
+  40% {opacity: 0.6;}
+  100% {opacity: 1;}
+}
+
+.aploanim.txtcontractin.aploshow {animation-name:txtcontractin}
+@keyframes txtcontractin {
+  0% {letter-spacing: 1em;opacity: 0;}
+  40% {opacity: 0.6;}
+  100% {letter-spacing: normal;opacity: 1;}
+}
+
+.aploanim.txtblurexpandin.aploshow {animation-name:txtblurexpandin}
+@keyframes txtblurexpandin {
+  0% {letter-spacing: -0.5em;filter: blur(12px);opacity: 0;}
+  100% {filter: blur(0px);opacity: 1;}
+}
+
+.aploanim.txtblurcontractin.aploshow {animation-name:txtblurcontractin}
+@keyframes txtblurcontractin {
+  0% { letter-spacing: 1em;filter: blur(12px);opacity: 0;}
+  100% {filter: blur(0px);opacity: 1;}
+}
+
+.is-style-texture-one {background-image:url(../images/textures/bg.png);background-repeat: repeat;}
+.is-style-texture-two {background-image:url(../images/textures/bg2.png);background-repeat: repeat;}   
+.is-style-texture-three {background-image:url(../images/textures/bg3.png);background-repeat: repeat;}    
+.is-style-texture-four {background-image:url(../images/textures/bg4.webp);background-repeat: repeat;} 
+.is-style-texture-five {background-image:url(../images/textures/bg5.png);background-repeat: repeat;}    
+.is-style-texture-six {background-image:url(../images/textures/bg6.png);background-repeat: repeat;}   
+.is-style-texture-seven {background-image:url(../images/textures/bg7.png);background-repeat: repeat;}   
+.is-style-texture-eight {background-image:url(../images/textures/bg8.png);background-repeat: repeat;}   
+.is-style-texture-nine {background-image:url(../images/textures/bg9.png);background-repeat: repeat;}   
+.is-style-texture-ten {background-image:url(../images/textures/bg10.png);background-repeat: repeat;}   
+
+  /*********************** Navigation **********************/
+  
+  [class*=is-style-aplo-navigation] {
+    --aplo-nav-to-in:bottom right;
+    --aplo-nav-to-out:bottom left;
+  }
+
+  [class*=is-style-aplo-navigation] .wp-block-navigation-item:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    background-color:currentcolor;
+    transform-origin: var(--aplo-nav-to-in);
+    transition: transform 0.25s ease-out;
+  }
+  
+[class*=is-style-aplo-navigation]  .wp-block-navigation-item:hover:after {transform: scaleX(1);transform-origin: var(--aplo-nav-to-out);}
+[class*=is-style-aplo-navigation]  .wp-block-navigation-item a {text-decoration:none !important;}
+
+.is-style-aplo-navigation-underline-anim .wp-block-navigation-item:after {
+  margin-top:2px;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+}
+
+/****************** Sticky Columns ********************  ************************************ - check this*/
+.wp-block-columns.is-style-aplo-columns-sticky {overflow:visible;}
+.wp-block-column.is-style-aplo-column-sticky {position:sticky;top:20px;align-self:flex-start;}
+
+.is-style-aplo-coveroverlay .wp-block-cover__background {transition: all 0.5s ease-in;}
+.is-style-aplo-coveroverlay:hover .wp-block-cover__background {opacity:0 !important;}
+
+/************************ masks *******************************/
+/**** arrow left/right */
+.is-style-aplo-mask-pr:not(.wp-block-image), .wp-block-image.is-style-aplo-mask-pr img { clip-path:polygon(calc(100% - var(--aplo-clip)) 0%, 100% 50%, calc(100% - var(--aplo-clip)) 100%, 0% 100%, 0% 0%);}
+.is-style-aplo-mask-pl:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-pl img  { clip-path:polygon(var(--aplo-clip) 0%, 100% 0%, 100% 100%, var(--aplo-clip) 100%, 0% 50%);}
+.is-style-aplo-mask-plr:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-plr img  { clip-path:polygon(var(--aplo-clip) 0%, calc(100% - var(--aplo-clip)) 0%, 100% 50%, calc(100% - var(--aplo-clip)) 100%, var(--aplo-clip) 100%, 0% 50%);}
+
+/********** slant left/right****************************/
+.is-style-aplo-mask-sr:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sr img  { clip-path: polygon(var(--aplo-clip) 0%, 100% 0%, calc(100% - var(--aplo-clip)) 100%, 0% 100%);}
+.is-style-aplo-mask-sl:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sl img  { clip-path: polygon(0 0, calc(100% - var(--aplo-clip)) 0, 100% 100%, var(--aplo-clip) 100%);}
+
+/********** slant left/right one side only *************/
+.is-style-aplo-mask-srr:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-srr img  { clip-path: polygon(0% 0%, 100% 0%, calc(100% - var(--aplo-clip)) 100%, 0% 100%);}
+.is-style-aplo-mask-srl:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-srl img  { clip-path: polygon(var(--aplo-clip) 0%, 100% 0%, 100% 100%, 0% 100%);}
+
+.is-style-aplo-mask-slr:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-slr img  { clip-path: polygon(0 0, calc(100% - var(--aplo-clip)) 0, 100% 100%, 0% 100%);}
+.is-style-aplo-mask-sll:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sll img  { clip-path: polygon(0 0, 100% 0, 100% 100%, var(--aplo-clip) 100%);}
+
+
+/*********** slope up/down top & bottom****************/
+.is-style-aplo-mask-su:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-su img  { clip-path: polygon(0 var(--aplo-clip), 100% 0, 100% calc(100% - var(--aplo-clip)), 0 100%);}
+.is-style-aplo-mask-sd:not(.wp-block-image), .wp-block-image.is-style-aplo-mask-sd img { clip-path: polygon(0 0, 100% var(--aplo-clip), 100% 100%, 0 calc(100% - var(--aplo-clip)));}
+
+/*********** slope up/down bottom ****************/
+.is-style-aplo-mask-sub:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sub img { clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--aplo-clip)), 0 100%);}
+.is-style-aplo-mask-sdb:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sdb img { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--aplo-clip)));}
+
+/*********** slope up/down top ****************/
+.is-style-aplo-mask-sut:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sut img { clip-path: polygon(0 var(--aplo-clip), 100% 0, 100% 100%, 0 100%);}
+.is-style-aplo-mask-sdt:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sdt img { clip-path: polygon(0 0, 100% var(--aplo-clip), 100% 100%, 0 100%);}
+
+/*********** pinch in left & right ***********/
+.is-style-aplo-mask-pilr:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-pilr img { clip-path: polygon(0 0, 100% 0, calc(100% - var(--aplo-clip)) 50%, 100% 100%, 0 100%, var(--aplo-clip) 50%);}
+
+/*********** pinch in top/bottom ***********/
+.is-style-aplo-mask-pitb:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-pitb img { clip-path: polygon(0 0, 50% var(--aplo-clip), 100% 0, 100% 100%, 50% calc(100% - var(--aplo-clip)), 0 100%);}
+
+/*********** pinch out left/right ***********/
+.is-style-aplo-mask-pol:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-pol img { clip-path: polygon(0 var(--aplo-clip), 100% 0, 100% 100%, 0 100%);}
+.is-style-aplo-mask-por:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-por img { clip-path: polygon(0 0, 100% var(--aplo-clip), 100% 100%, 0 100%);}
+
+/*********** pinch out top/bottom ***********/
+.is-style-aplo-mask-pot:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-pot img { clip-path: polygon(0 var(--aplo-clip), 100% 0, 100% 100%, 0 100%);}
+.is-style-aplo-mask-pob:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-pob img { clip-path: polygon(0 0, 100% var(--aplo-clip), 100% 100%, 0 100%);}
+
+/*********** squeeze left/right *************/
+.is-style-aplo-mask-sql:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sql img { clip-path: polygon(0 var(--aplo-clip), 100% 0, 100% 100%, 0 calc(100% - var(--aplo-clip)));}
+.is-style-aplo-mask-sqr:not(.wp-block-image),.wp-block-image.is-style-aplo-mask-sqr img { clip-path: polygon(0 0, 100% var(--aplo-clip), 100% calc(100% - var(--aplo-clip)), 0 100% );}
+
+/********* css for the filters ****************/
+.aplo-has-filters:where(:not(.aplo-bd-f):not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery):not(.wp-block-media-text)),
+.aplo-has-filters:where(.wp-block-image) img,
+.aplo-has-filters.wp-block-gallery:not(.aplo-gs) img,
+.aplo-has-filters:where(.wp-block-cover) img.wp-block-cover__image-background,
+.aplo-has-filters:where(.wp-block-cover) video.wp-block-cover__video-background,
+.aplo-has-filters:where(.wp-block-media-text) > .wp-block-media-text__media
+      { filter:  var(--aplo-filter-string);}
+
+.aplo-has-hover-filters:where(:not(.aplo-bd-f):not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery):not(.wp-block-media-text)):hover,
+.aplo-has-hover-filters:where(.wp-block-image):hover img,
+.aplo-has-hover-filters.wp-block-gallery:not(.aplo-gs) img:hover,
+.aplo-has-hover-filters:where(.wp-block-cover):hover img.wp-block-cover__image-background,
+.aplo-has-hover-filters:where(.wp-block-cover):hover video.wp-block-cover__video-background,
+.aplo-has-hover-filters:where(.wp-block-media-text):hover > .wp-block-media-text__media
+      {filter: var(--aplo-filter-hover-string);}
+
+.aplo-has-filters.aplo-bd-f:where(:not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery))
+      { transition:backdrop-filter 500ms;backdrop-filter:  var(--aplo-filter-string);}
+
+.aplo-has-hover-filters.aplo-bd-f:where(:not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery)):hover
+      {backdrop-filter: var(--aplo-filter-hover-string);}
+
+.aplo-has-hover-filters.aplo-gs.wp-block-gallery {
+  pointer-events: none;
+}
+
+.aplo-has-hover-filters.aplo-gs.wp-block-gallery figure {
+  pointer-events: auto; filter:var(--aplo-filter-string);
+}
+
+.aplo-has-hover-filters.aplo-gs.wp-block-gallery:hover figure:not(:hover) {
+  transition:filter 500ms;filter:  var(--aplo-filter-hover-string);
+}
+
+
+/********** css for transforms **********/
+
+.aplo-has-transforms:where(:not(.aplo-bd-f):not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery):not(.wp-block-media-text)),
+.aplo-has-transforms:where(.wp-block-image) img,
+.aplo-has-transforms.wp-block-gallery:not(.aplo-gs) img,
+.aplo-has-transforms:where(.wp-block-cover) img.wp-block-cover__image-background,
+.aplo-has-transforms:where(.wp-block-cover) video.wp-block-cover__video-background,
+.aplo-has-transforms:where(.wp-block-cover) .wp-block-cover__background,
+.aplo-has-transforms:where(.wp-block-media-text) > .wp-block-media-text__media
+      {transform:  var(--aplo-transform-string);}
+
+.aplo-has-hover-transforms:where(:not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery):not(.wp-block-media-text)):hover,
+.aplo-has-hover-transforms:where(.wp-block-image):hover img,
+.aplo-has-hover-transforms.wp-block-gallery:not(.aplo-gs) img:hover,
+.aplo-has-hover-transforms:where(.wp-block-cover):hover img.wp-block-cover__image-background,
+.aplo-has-hover-transforms:where(.wp-block-cover):hover video.wp-block-cover__video-background,
+.aplo-has-hover-transforms:where(.wp-block-cover):hover .wp-block-cover__background
+.aplo-has-hover-transforms:where(.wp-block-media-text):hover > .wp-block-media-text__media
+      {transform: var(--aplo-transform-hover-string);}
+
+
+.aplo-has-hover-filters:where(:not(.aplo-has-hover-transforms):not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery):not(.wp-block-media-text)),
+.aplo-has-hover-filters.wp-block-image:not(.aplo-has-hover-transforms) img,
+.aplo-has-hover-filters.wp-block-cover:not(.aplo-has-hover-transforms) img.wp-block-cover__image-background,
+.aplo-has-hover-filters.wp-block-cover:not(.aplo-has-hover-transforms) video.wp-block-cover__video-background,
+.aplo-has-hover-filters.wp-block-media-text:not(.aplo-has-hover-transforms) .wp-block-media-text__media,
+.aplo-has-hover-filters.wp-block-gallery:not(.aplo-gs):not(.aplo-has-hover-transforms) img
+{
+  transition-property:filter;
+  transition-duration:var(--aplo-thdu);
+  transition-timing-function:var(--aplo-thti);
+  transition-delay:20ms;
+}
+
+.aplo-has-hover-transforms:where(:not(.aplo-has-hover-filters):not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery)),
+.aplo-has-hover-transforms.wp-block-image:not(.aplo-has-hover-filters) img,
+.aplo-has-hover-transforms.wp-block-cover:not(.aplo-has-hover-filters) img.wp-block-cover__image-background,
+.aplo-has-hover-transforms.wp-block-cover:not(.aplo-has-hover-filters) video.wp-block-cover__video-background,
+.aplo-has-hover-transforms.wp-block-cover:not(.aplo-has-hover-filters) .wp-block-cover__background,
+.aplo-has-hover-transforms.wp-block-media-text:not(.aplo-has-hover-filters) .wp-block-media-text__media,
+.aplo-has-hover-transforms.wp-block-gallery:not(.aplo-gs):not(.aplo-has-hover-filters) img
+{
+  transition-property:transform;
+  transition-duration:var(--aplo-thdu);
+  transition-timing-function:var(--aplo-thti);
+  transition-delay:20ms;
+}
+
+.aplo-has-hover-transforms.aplo-has-hover-filters:where(:not(.wp-block-media-text):not(.wp-block-image):not(.wp-block-cover):not(.wp-block-gallery)), 
+.aplo-has-hover-transforms.aplo-has-hover-filters.wp-block-image img,
+.aplo-has-hover-transforms.aplo-has-hover-filters.wp-block-cover img.wp-block-cover__image-background,
+.aplo-has-hover-transforms.aplo-has-hover-filters.wp-block-cover video.wp-block-cover__video-background,
+.aplo-has-hover-transforms.aplo-has-hover-filters.wp-block-cover .wp-block-cover__background,
+.aplo-has-hover-transforms.aplo-has-hover-filters.wp-block-media-text .wp-block-media-text__media,
+.aplo-has-hover-transforms.aplo-has-hover-filters.wp-block-gallery:not(.aplo-gs) img
+{
+  transition-property: transform, filter;
+  transition-duration:var(--aplo-thdu);
+  transition-timing-function:var(--aplo-thti);
+  transition-delay:20ms;
+}
+
+/************* image mask ********************/
+
+.aplo-image-mask-circle {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_circle.svg);
+}
+.aplo-image-mask-curved {
+  --aplo-image-mask:url(../../assets/images/svg/svgmask_curved.svg);
+}
+.aplo-image-mask-paper1 {
+ --aplo-image-mask:url(../../assets/images/svg/svgmask_paper1.svg);
+}
+.aplo-image-mask-paper2 {
+  --aplo-image-mask:url(../../assets/images/svg/svgmask_paper2.svg);
+ }
+ .aplo-image-mask-fhcircle {
+  --aplo-image-mask:url(../../assets/images/svg/svgmask_freehandcircle.svg);
+ }
+ .aplo-image-mask-fhsquare {
+  --aplo-image-mask:url(../../assets/images/svg/svgmask_freehandsquare.svg);
+ }
+.aplo-image-mask-splat1 {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_splat1.svg);
+}
+.aplo-image-mask-layered {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_layered.svg);
+}
+.aplo-image-mask-curved-outline {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_curved_outline.svg);
+}
+.aplo-image-mask-wave {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_wave.svg);
+}
+.aplo-image-mask-wave2 {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_wave2.svg);
+}
+.aplo-image-mask-wave2-layered {
+  --aplo-image-mask: url(../../assets/images/svg/svgmask_wave2_layered.svg);
+}
+
+[class*=aplo-image-mask]:not(.wp-block-image), [class*=aplo-image-mask].wp-block-image img {
+  -webkit-mask: var(--aplo-image-mask);
+  mask: var(--aplo-image-mask);
+  -webkit-mask-size: var(--aplo-image-mask-size);
+  mask-size: var(--aplo-image-mask-size);
+  -webkit-mask-repeat: var(--aplo-image-mask-repeat-x) var(--aplo-image-mask-repeat-y);
+  mask-repeat: var(--aplo-image-mask-repeat-x) var(--aplo-image-mask-repeat-y);
+  -webkit-mask-position: var(--aplo-image-mask-position);
+  mask-position:var(--aplo-image-mask-position);
+}
+
+
+/* sticky header hide */
+.wp-block-group.is-style-aplo-sticky-hide,.wp-block-group.is-style-aplo-sticky-hide-in {
+  top:-1px;
+  transition: all 0.3s;
+  position:sticky;
+  z-index:999999;
+}
+
+.aplo-header-stuck  {
+  background-color:var(--aplo-stuck-header-base);
+  color:var(--aplo-stuck-header-contrast);
+}
+
+/*.admin-bar .*/
+
+/* styles for responsive */
+
+/* width based on default wp css */
+@media screen and (max-width: 781px) {
+
+  /* reverse wrap */
+  .wp-block-columns.aplo-wrap-reverse:not(.is-not-stacked-on-mobile) {
+    flex-wrap:wrap-reverse!important;
+  }
+
+  /* remove negative margins on columns when stacked */
+  .wp-block-columns:not(.is-not-stacked-on-mobile) .wp-block-column.aplo-has-pull-styles {
+      margin-left:0px!important;
+      margin-right:0px!important;
+      
+  }
+
+  .wp-block-columns:not(.is-not-stacked-on-mobile) .wp-block-column.is-style-aplo-column-sticky {
+    position:relative;
+  }
+
+  /* optionally remove masks from blocks when stacked */
+  .aplo-mask-remove[class*=is-style-aplo-mask], .aplo-mask-remove.wp-block-image[class*=is-style-aplo-mask] img {
+    clip-path:none!important;
+  }
+
+  .aplo-image-mask-remove[class*=aplo-image-mask], .aplo-image-mask-remove.wp-block-image[class*=aplo-image-mask] img {
+    mask:none;
+    -webkit-mask:none;
+  }
+
+  .wp-site-blocks .aplo-hide-mobile {
+    display:none!important;
+  }
+}
+
+
+@media (min-width: 781px) {
+  .wp-site-blocks .aplo-hide-desktop {
+    display:none!important;
+  }
+}
+
+/* fix for v6.3 onwards - allow overflow on cover block */
+.wp-block-cover {
+  overflow:visible !important;
+}

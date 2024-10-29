@@ -1,0 +1,201 @@
+/* should make this flex */
+.pattern-interface {
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:1rem;
+  }
+  
+  .pattern-interface .load-more {
+    display:flex;
+    justify-content: center;
+    margin-top:2rem;
+  }
+  
+  .pattern-interface .load-more .load-more-button {
+    background-color:rgb(59, 108, 110);
+    color:#fff;
+    padding:5px 25px;
+    border-radius: 5px;
+  }
+  
+  .pattern-searcher {
+    padding-top:5px;
+  }
+  
+  .pattern-searcher h3 {
+    text-align:center;
+    margin:5px;
+  }
+  
+  .pattern-searcher p {
+    margin:5px;
+    text-align:center;
+  }
+  
+  .pattern-searcher .search-content {
+    border:1px solid #999;
+    border-radius:10px;
+    position:sticky;
+    top:0;
+    padding:5px;
+    padding-bottom:20px;
+  }
+  
+  .pattern-searcher .search-param {
+    display:flex;
+    flex-flow:wrap;
+    justify-content:center;
+    gap:0.5rem;
+    margin-bottom:20px;
+  }
+  
+  .pattern-searcher .search-param a {
+    padding:3px;
+    background-color:#ccc;
+    color:#000;
+    border-radius:5px;
+    pointer-events:auto;
+    border:0;
+  }
+  
+  .pattern-searcher .search-param a.active {
+    background-color:#777;
+    color:#fff;
+    border:0;
+  }
+  
+  .pattern-searcher .search-buttons {
+    display:flex;
+    gap:0.5rem;
+    justify-content:center;
+    margin-top:20px;
+  
+  }
+  
+  .pattern-searcher .search-buttons button {
+    background-color:rgb(59, 108, 110);
+    color:#fff;
+    border-radius:5px;
+    padding:5px;
+  
+  }
+  
+  .patternList {
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      align-items:center;
+      gap:1rem;
+  }
+  
+  .patternList img {
+      width:100%;
+      border:1px solid #ccc;
+      border-radius:5px;
+      box-shadow:2px 2px 2px rgba(0,0,0,0.5);
+      background-color:hsl(212,100%,97%);
+      height:180px;
+      padding:5px;
+      object-fit:contain;
+  
+  }
+  
+  .patternList img:hover {
+      border:1px solid #777;
+      border-radius:5px;
+      box-shadow:2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .patternList .aplo-pattern {
+    position:relative;
+  }
+  
+  .patternList .aplo-free::before {
+    content:'Free';
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:hsl(240, 70%, 85%);
+    color:#332332;
+    text-align:center;
+    font-size:1.1rem;
+    padding:0 5px;
+    border-radius:5px 0 5px 0;
+    height:20px;
+  }
+  
+  .patternList .aplo-freemium::before {
+    content:'Freemium';
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:hsl(240, 70%, 50%);
+    color:#fff;
+    text-align:center;
+    padding:0 5px;
+    height:20px;
+  }
+  
+  .patternList .aplo-pro::before {
+    content:'Pro';
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:rgb(16, 16, 30%);
+    color:#fff;
+    text-align:center;
+    padding:0 5px;
+    height:20px;
+  }
+  
+  .aplo-latest {
+    margin:15px 25px;
+  }
+  
+  .aploblocks-sidebar {
+    padding:8px;
+  }
+  
+  .aploblocks-loading-outer {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+  background-color:rgba(0,0,0,0.2);
+  pointer-events:none;
+  z-index:999999;
+  }
+  
+  .aploblocks-pattern-loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+    position:relative;
+    top:50%;
+    left:50%;
+  }
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  
+  .pattern-select-buttons {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
+    
+  
+  }
+  
+  .pattern-select-buttons button {
+      width:80%;
+  }

@@ -1,0 +1,92 @@
+/***********************************************************************************
+*
+*  The following styles are intended to prevent a pattern from the aploblocks pattern
+*  inserter loading without any color set.  These styles are only loaded in the editor.
+*  Patterns inserted in to the editor must be then modified with theme colours if needed
+*
+*  There is no guarantee that patterns inserted in to 3rd party themes will load with
+*  suitable/visible colors but all elements will have colour
+*
+*  This is a bit of a workaround but uses the behaviour of outline not being visible for most
+*  elements if a style is not defined.
+*
+************************************************************************************/
+
+
+body {
+    --base-defined: var(--wp--preset--color--base,dashed);
+    --contrast-defined: var(--wp--preset--color--contrast,dashed);
+    --primary-defined: var(--wp--preset--color--primary,dashed);
+    --secondary-defined: var(--wp--preset--color--secondary,dashed);
+    --tertiary-defined: var(--wp--preset--color--tertiary,dashed);
+}
+
+.has-base-color { 
+    color: var(--wp--preset--color--base, hsl(0, 0%, 100%));
+    outline:3px var(--base-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+
+.has-contrast-color { 
+    color: var(--wp--preset--color--contrast, hsl(0, 0%, 0%)); 
+    outline:3px var(--base-defined);
+    outline-color:red;
+    outline-offset:-4px
+
+}
+
+.has-primary-color { 
+    color: var(--wp--preset--color--primary, hsl(0, 0%, 85%)); 
+    outline:3px var(--base-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+
+.has-secondary-color { 
+    color: var(--wp--preset--color--secondary, hsl(0, 0%, 70%)); 
+    outline:3px var(--base-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+
+.has-tertiary-color { 
+    color: var(--wp--preset--color--tertiary, hsl(0, 0%, 15%)); 
+    outline:3px var(--base-defined);
+    outline-color:red;
+    outline-offset:-4px}
+
+.has-base-background-color { 
+    background-color: var(--wp--preset--color--base, hsl(0, 0%, 100%));
+    outline:3px var(--base-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+
+.has-contrast-background-color { 
+    background-color: var(--wp--preset--color--contrast, hsl(0, 0%, 0%)); 
+    outline:3px var(--contrast-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+
+.has-primary-background-color { 
+    background-color: var(--wp--preset--color--primary, hsl(0, 0%, 85%)); 
+    outline:3px var(--primary-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+.has-secondary-background-color { 
+    background-color: var(--wp--preset--color--secondary, hsl(0, 0%, 70%)); 
+    outline:3px var(--secondary-defined);
+    outline-color:red;
+    outline-offset:-4px
+
+}
+.has-tertiary-background-color { 
+    background-color: var(--wp--preset--color--tertiary, hsl(0, 0%, 15%)); 
+    outline:3px var(--tertiary-defined);
+    outline-color:red;
+    outline-offset:-4px
+}
+

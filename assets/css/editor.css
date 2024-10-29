@@ -1,0 +1,100 @@
+
+.aploranges .components-range-control .components-range-control__root :nth-child(0) { order: 2; } 
+.aploranges .components-range-control .components-range-control__root :nth-child(1) { order: 1; } 
+.aploranges h2 {margin:5px 0px}
+/*
+.aplorange {
+  display:flex;
+  gap:5px;
+  align-content:center;
+}
+
+.aploranges .aplorange .components-base-control {
+  width:100%;
+  margin-bottom:4px;
+  margin-left:0px !important;
+}
+
+.aploranges .aplorange .components-base-control.components-unit-control-wrapper {
+  width:100px;
+  height:2rem;
+}
+*/
+/*
+.aplorange {
+  display:flex;
+}
+*/
+.aploranges h2 {
+  font-size:12px;
+}
+
+.aploranges.aplofiltersranges h2 {
+  background-color:#eee;
+  padding:2px;
+}
+
+/*
+.aplorange .components-range-control {
+  width:-moz-available;
+  width:-webkit-fill-available;
+}
+*/
+.aplorange .components-input-control {
+  margin-left:5px !important;
+}
+
+.aplorange-unit {
+  display:flex;
+  gap:5px;
+  margin-bottom:0px;
+}
+
+.aplorange-unit .components-range-control {
+  flex-grow: 2;
+}
+
+.aplorange-unit .components-unit-control {
+  width:30%;
+}
+
+.aplorange-unit .components-base-control {
+  margin-bottom:0px;
+}
+
+.block-editor-block-inspector .aplorange .components-base-control:last-child {
+  margin-bottom:0;
+}
+
+.block-editor-block-inspector .aplorange .components-base-control {
+  margin-bottom:0;
+}
+
+.aplocolorpicker >div {
+  flex-direction: row!important;
+  margin-left:20px;
+}
+.aplocolorpicker .components-circular-option-picker .components-circular-option-picker__custom-clear-wrapper {
+  justify-content:flex-start;
+}
+
+
+
+.aploimageupload {
+  width:100%;
+  border:1px solid #aaa;
+  background-color:#ccc;
+  pointer-events:auto;
+  max-height:150px;
+  height:120px;
+  margin-bottom:1rem;
+}
+
+.aploimageupload img {
+  height:100%!important;
+}
+
+.aplosettingsrow {
+  display:flex;
+  justify-content:space-between;
+}
